@@ -28,7 +28,7 @@ namespace ieslab1
             Console.WriteLine(Base64toString);
 
 
-
+            //helloworld
             //string unicodeString = "This string contains the unicode character Pi (\u03a0)";
             int[] cipher = new[] { 1, 1, 2, 3, 5, 8, 13 }; //Fibonacci Sequence
             string cipherasString = String.Join(",", cipher.Select(x => x.ToString())); //FOr display
