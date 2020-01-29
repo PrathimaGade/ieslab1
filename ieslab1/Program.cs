@@ -11,23 +11,35 @@ namespace ieslab1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter name:");
+            Console.WriteLine("Enter name: ");
             string name = Console.ReadLine();
 
             String toBinary = StringToBinary2(name);
+     
+            Console.Write("Name in Binary: ");
             Console.WriteLine(toBinary);
-            Console.WriteLine("Enter name in binary:");
+            Console.WriteLine("Enter name in binary: ");
             string namebinary = Console.ReadLine();
             String binText = BinaryToString(namebinary);
+            Console.Write("Name after conversion from Binary: ");
             Console.WriteLine(binText);
             String toHex = StringToHex2(name);
+            Console.WriteLine("");
+            Console.Write("Name in HexaDecimal format: ");
             Console.WriteLine(toHex);
+            String hexToString = HexToString(toHex);
+            Console.Write("Name from Hexadecimal to String: ");
+            Console.WriteLine(hexToString);
             String toBase64 = StringToBase64(name);
+            Console.WriteLine("");
+            Console.Write("Name to Base64 Format: ");
             Console.WriteLine(toBase64);
             String Base64toString = Base64ToString(toBase64);
+            Console.Write("Name back to string from Base64: ");
+
             Console.WriteLine(Base64toString);
 
-
+            Console.WriteLine("");
             //helloworld
             //string unicodeString = "This string contains the unicode character Pi (\u03a0)";
             int[] cipher = new[] { 1, 1, 2, 3, 5, 8, 13 }; //Fibonacci Sequence
@@ -126,6 +138,19 @@ namespace ieslab1
                     return text;
                 }
             }
+        }
+
+
+        public static string HexToString(string HexString)
+        {
+            string stringValue = "";
+            for (int i = 0; i < HexString.Length / 2; i++)
+            {
+                string hexChar = HexString.Substring(i * 2, 2);
+                int hexValue = Convert.ToInt32(hexChar, 16);
+                stringValue += Char.ConvertFromUtf32(hexValue);
+            }
+            return stringValue;
         }
 
     }
